@@ -19,9 +19,7 @@ const icon = React.forwardRef(({ children, onClick }, ref) => (
 const DropDown = () => {
   return (
     <Dropdown drop="end">
-      <Dropdown.Toggle
-        as={icon}
-      ></Dropdown.Toggle>
+      <Dropdown.Toggle as={icon}></Dropdown.Toggle>
 
       <Dropdown.Menu>
         <Dropdown.Item eventKey="1">

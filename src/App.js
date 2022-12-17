@@ -1,14 +1,38 @@
 import "./App.css";
-import { getCarsInfo } from "./components/data";
-import Box from "./components/box";
+import CustomForm from "./components/customForm";
+import { createContext } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FormDefinition from "./components/formDefinition";
+
+export const FormContext = createContext();
 
 function App() {
-  const data = getCarsInfo();
+  const inputFields = [
+    {
+      label: "",
+      placeholder: "",
+      type: "",
+      description: "",
+      isRequired: "",
+      pattern: "",
+      formatToDisplay: "",
+      add: "",
+      edit: "",
+      remove: "",
+      item: "",
+      items: [],
+    },
+  ];
 
   return (
-    <div className="w-full h-full p-3 bg-[#d4d4d4]">
-      <Box data={data} />
-    </div>
+    <BrowserRouter>
+      <FormContext.Provider value={inputFields}>
+        <Routes>
+          <Route path="/" element={<FormDefinition />} />
+          <Route path="/customForm" element={<CustomForm />} />
+        </Routes>
+      </FormContext.Provider>
+    </BrowserRouter>
   );
 }
 

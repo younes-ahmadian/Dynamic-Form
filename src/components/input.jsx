@@ -17,7 +17,7 @@ const Input = props => {
   const required = isRequired === "true" ? true : false;
 
   return (
-    <div className="w-fit h-fit flex flex-col max-w-[400px] ml-2 text-white">
+    <div className="w-fit h-fit flex flex-col min-w-[35%] ml-2 text-white">
       {label && !Boolean(type === "radio" || type === "checkbox") && (
         <label htmlFor={id} className="font-bold">
           {required && <span className="text-red-500">*</span>} {label}:
@@ -46,7 +46,7 @@ const Input = props => {
       )}
       {type === "timeSpan" && (
         <div>
-          From:
+          <span className="mr-1">From:</span>
           <input
             className={`border border-slate-600 focus:outline-none focus:ring focus:ring-blue-700 duration-300 focus:outline-none focus:ring focus:ring-blue-700 rounded p-1 text-black`}
             type="date"
@@ -55,7 +55,7 @@ const Input = props => {
             id={id}
             onChange={e => onChange(e.target)}
           />{" "}
-          to:
+          <span className="mr-1">to:</span>
           <input
             className={`border border-slate-600 focus:outline-none focus:ring focus:ring-blue-700 duration-300 focus:outline-none focus:ring focus:ring-blue-700 rounded p-1 text-black`}
             type="date"

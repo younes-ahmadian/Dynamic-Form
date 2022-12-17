@@ -13,7 +13,9 @@ const CustomForm = () => {
   // const [value, setValue] = useState("");
 
   useEffect(() => {
-    inputFields.length === 0 ? navigate("/") : setRemainFields(inputFields);
+    inputFields.length === 0 || inputFields[0].type === ""
+      ? navigate("/")
+      : setRemainFields(inputFields);
   });
 
   const handleChange = (index, e) => {
@@ -72,9 +74,9 @@ const CustomForm = () => {
             return (
               <div
                 key={index}
-                className="relative flex flex-col border-2 border-white p-4 m-1 rounded-lg"
+                className="relative flex flex-col border-2 border-white p-4 m-1 rounded-lg w-[70%]"
               >
-                <div className="flex ">
+                <div className="flex">
                   <Input
                     label={input.label}
                     placeholder={input.placeholder}
@@ -94,7 +96,7 @@ const CustomForm = () => {
 
                   <button
                     onClick={submit}
-                    className={`focus:outline-none focus:ring focus:ring-blue-700 bg-blue-500 font-bold rounded  ml-2 p-1 h-fit ${
+                    className={`focus:outline-none focus:ring focus:ring-blue-700 bg-blue-500 font-bold rounded  ml-4 p-1 h-fit ${
                       input.label ? "mt-8" : ""
                     }`}
                   >
